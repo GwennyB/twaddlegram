@@ -31,6 +31,8 @@ namespace TwaddleGram
             services.AddDbContext<TwaddleDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IPost, PostManager>();
+            services.AddScoped<IUser, UserManager>();
+            services.AddScoped<IComment, CommentManager>();
 
 
         }

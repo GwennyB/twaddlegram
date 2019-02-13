@@ -11,6 +11,9 @@ namespace TwaddleGram.Models.Interfaces
         // GetAll
         Task<IEnumerable<Post>> GetAllPosts();
 
+        // GetAll from single user
+        Task<IEnumerable<Post>> GetUserPosts(int id);
+
         // GetOne
         Task<Post> GetOnePost(int id);
 

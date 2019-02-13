@@ -7,6 +7,7 @@ namespace TwaddleGram.Models
 {
     public class Comment
     {
+        public int ID { get; set; }
         public string Content { get; set; }
 
         // foreign keys
