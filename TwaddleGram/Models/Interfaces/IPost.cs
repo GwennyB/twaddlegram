@@ -12,16 +12,16 @@ namespace TwaddleGram.Models.Interfaces
         Task<IEnumerable<Post>> GetAllPosts();
 
         // GetOne
-        Task<Post> GetOnePost();
+        Task<Post> GetOnePost(int id);
 
         // Create
-        Task MakePost();
+        Task MakePost(Post post);
 
         // Edit
-        Task EditPost();
+        Task EditPost(Post post);
 
         // Delete
-        Task DeletePost();
+        Task DeletePost(int id);
 
     }
 }

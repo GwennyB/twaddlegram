@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,37 +10,70 @@ namespace TwaddleGram.Models.Services
 {
     public class PostManager : IPost
     {
-
+        /// <summary>
+        /// build local context
+        /// </summary>
         private TwaddleDbContext _context { get; }
-
         public PostManager(TwaddleDbContext context)
         {
             _context = context;
         }
 
-        public Task<IEnumerable<Post>> GetAllPosts()
+        /// <summary>
+        /// returns all records in Posts table
+        /// </summary>
+        /// <returns> IEnumerable collection of posts </returns>
+        public async Task<IEnumerable<Post>> GetAllPosts()
         {
-            throw new NotImplementedException();
+            return await _context.Posts.ToListAsync();
         }
 
-        public Task<Post> GetOnePost()
+        /// <summary>
+        /// returns a single post by ID
+        /// </summary>
+        /// <param name="id"> ID of post to get </param>
+        /// <returns> post (if found), or null (if not found) </returns>
+        public async Task<Post> GetOnePost(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
         }
 
-        public Task MakePost()
+        /// <summary>
+        /// creates a new record in Posts
+        /// </summary>
+        /// <param name="post"> Post object to add to Posts</param>
+        /// <returns> task complete </returns>
+        public async Task MakePost(Post post)
         {
-            throw new NotImplementedException();
+            await _context.Posts.AddAsync (post);
+            await _context.SaveChangesAsync();
         }
 
-        public Task EditPost()
+        /// <summary>
+        /// updates an existing post
+        /// </summary>
+        /// <param name="post"> updated post object to update in Posts table </param>
+        /// <returns> task completed </returns>
+        public async Task EditPost(Post post)
         {
-            throw new NotImplementedException();
+            await Task.Run(() => _context.Posts.Update(post));
+            await _context.SaveChangesAsync();
+
         }
 
-        public Task DeletePost()
+        /// <summary>
+        /// deletes a record from the Posts table
+        /// </summary>
+        /// <param name="id"> ID of post to delete </param>
+        /// <returns> task completed </returns>
+        public async Task DeletePost(int id)
         {
-            throw new NotImplementedException();
+            var query = await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
+            if (query != null)
+            {
+                await Task.Run(() => _context.Remove(query));
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
