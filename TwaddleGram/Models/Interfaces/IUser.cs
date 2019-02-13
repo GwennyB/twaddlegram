@@ -14,7 +14,7 @@ namespace TwaddleGram.Models.Interfaces
         Task<User> GetOneUser(int id);
 
         // Create
-        Task CreateUser(User user);
+        Task MakeUser(User user);
 
         // Edit
         Task EditUser(User user);

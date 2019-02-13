@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TwaddleGram.Data;
+using TwaddleGram.Models.Interfaces;
 
 namespace TwaddleGram.Models.Services
 {
-    public class CommentManager
+    public class CommentManager : IComment
     {
         /// <summary>
         /// build local context
@@ -24,7 +25,7 @@ namespace TwaddleGram.Models.Services
         /// <returns> IEnumerable collection of comments </returns>
         public async Task<IEnumerable<Comment>> GetAllComments()
         {
-            return await _context.Comments.ToListAsync();
+            return await Task.Run(() => _context.Comments.AsEnumerable());
         }
 
         /// <summary>

@@ -25,7 +25,7 @@ namespace TwaddleGram.Models.Services
         /// <returns> IEnumerable collection of posts </returns>
         public async Task<IEnumerable<Post>> GetAllPosts()
         {
-            return await _context.Posts.ToListAsync();
+            return await Task.Run(() => _context.Posts.AsEnumerable());
         }
 
         /// <summary>

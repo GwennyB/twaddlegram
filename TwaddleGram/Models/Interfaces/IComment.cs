@@ -20,7 +20,7 @@ namespace TwaddleGram.Models.Interfaces
         Task<Comment> GetOneComment(int id);
 
         // Create
-        Task CreateComment(Comment comment);
+        Task MakeComment(Comment comment);
 
         // Edit
         Task EditComment(Comment comment);
