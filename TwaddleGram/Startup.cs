@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TwaddleGram.Data;
 using TwaddleGram.Models.Interfaces;
 using TwaddleGram.Models.Services;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace TwaddleGram
 {
@@ -20,7 +21,9 @@ namespace TwaddleGram
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -28,8 +31,8 @@ namespace TwaddleGram
 
             services.AddMvc();
 
-            services.AddDbContext<TwaddleDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddDbContext<TwaddleDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPost, PostManager>();
             services.AddScoped<IUser, UserManager>();
             services.AddScoped<IComment, CommentManager>();

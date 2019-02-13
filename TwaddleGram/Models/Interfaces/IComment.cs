@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace TwaddleGram.Models.Interfaces
 {
-    interface IComment
+    public interface IComment
     {
         // GetAll
         Task<IEnumerable<Comment>> GetAllComments();
 
-        // Get One User's Comments
-        Task<IEnumerable<Comment>> GetUserComments(int id);
+        //// Get One User's Comments
+        //Task<IEnumerable<Comment>> GetUserComments(int id);
 
         // Get One Post's Comments
         Task<IEnumerable<Comment>> GetPostComments(int id);

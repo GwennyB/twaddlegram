@@ -28,14 +28,14 @@ namespace TwaddleGram.Models.Services
             return await Task.Run(() => _context.Comments.AsEnumerable());
         }
 
-        /// <summary>
-        /// returns all records in Comments table associated with this User
-        /// </summary>
-        /// <returns> IEnumerable collection of comments </returns>
-        public async Task<IEnumerable<Comment>> GetUserComments(int id)
-        {
-            return await Task.Run(() => _context.Comments.Where(m => m.UserID == id));
-        }
+        ///// <summary>
+        ///// returns all records in Comments table associated with this User
+        ///// </summary>
+        ///// <returns> IEnumerable collection of comments </returns>
+        //public async Task<IEnumerable<Comment>> GetUserComments(int id)
+        //{
+        //    return await Task.Run(() => _context.Comments.Where(m => m.UserID == id));
+        //}
 
         /// <summary>
         /// returns all records in Comments table associated with this Post

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TwaddleGram.Models.Interfaces
 {
-    interface IUser
+    public interface IUser
     {
         // GetAll
         Task<IEnumerable<User>> GetAllUsers();

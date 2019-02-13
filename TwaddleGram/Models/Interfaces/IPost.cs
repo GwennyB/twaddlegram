@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwaddleGram.Models.Interfaces
 {
-    interface IPost
+    public interface IPost
     {
         // GetAll
         Task<IEnumerable<Post>> GetAllPosts();

@@ -11,7 +11,7 @@ namespace TwaddleGram.Models
         public string Content { get; set; }
 
         // foreign keys
-        public int UserID { get; set; }
+        //public int UserID { get; set; }
         public int PostID { get; set; }
 
         // Navigation Properties
