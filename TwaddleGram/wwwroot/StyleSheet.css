@@ -1,0 +1,27 @@
+﻿body {
+    background-color: lightgray;
+    color: seagreen;
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    margin: 75px;
+}
+
+nav {
+    font-size: 20px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.postbox {
+    display: inline-block;
+    background-color: white;
+    border-radius: 15px;
+    width: 40%;
+    height: 250px;
+    padding: 20px;
+    margin: 25px 3%;
+    text-align: center;
+}

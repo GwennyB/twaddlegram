@@ -1,19 +1,15 @@
 ﻿@page "{id}"
 @model TwaddleGram.Pages.Posts.IndexModel
 @{
+    Layout = "_Layout";
 }
 
 <div>
 
-
-    <p>Post #@Model.Post.ID</p>
-    <p>by @Model.Post.UserID</p>
-    <p>@Model.Post.Photo</p>
-    <p>@Model.Post.Caption</p>
+    <partial name="../Shared/_PostPartial.cshtml" model="Model.Post" />
     @foreach (var comment in Model.Post.Comments)
     {
         <p>@comment.Content (***add user***)</p>
     }
-
 
 </div>

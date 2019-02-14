@@ -46,6 +46,7 @@ namespace TwaddleGram.Models.Services
         {
             var query = await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
             query.Comments = await _context.Comments.Where(m => m.PostID == id).ToListAsync();
+            query.User = await _context.Users.FirstOrDefaultAsync(m => m.ID == query.UserID);
             return query;
         }
 

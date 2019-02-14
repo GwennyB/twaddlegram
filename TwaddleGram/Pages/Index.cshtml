@@ -6,17 +6,13 @@
 
 
 @{
+    Layout = "_Layout";
+
     var posts = await PostSvc.GetAllPosts();
 }
 
 @foreach (var post in posts)
 {
-<div class="postbox">
-    <p> ----------------------------------------- </p>
-    <a asp-page="Posts/Index" asp-route-id="@post.ID">
-        <p>-- PHOTO HERE --</p>
-        <img src="@post.Photo" alt="Alternate Text" />
-    </a>
-    <p> ----------------------------------------- </p>
-</div>
+    <a asp-page="Posts/Index" asp-route-id="@post.ID"><partial name="Shared/_PostPartial.cshtml" model="post" /></a>
+
 }
