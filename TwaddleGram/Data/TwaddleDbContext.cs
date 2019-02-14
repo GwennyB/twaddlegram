@@ -22,7 +22,7 @@ namespace TwaddleGram.Data
         /// <param name="modelBuilder">  </param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
 
             // DB seed data
             modelBuilder.Entity<User>().HasData(

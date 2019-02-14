@@ -26,8 +26,5 @@ namespace TwaddleGram.Models.Interfaces
         // Delete
         Task DeletePost(int id);
 
-        // Get all comments for one post
-        Task<ICollection<Comment>> GetAllComments(int id);
-
     }
 }

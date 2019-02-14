@@ -11,7 +11,7 @@ namespace TwaddleGram.Models
         public string Username { get; set; }
         public int Avatar { get; set; } // how to hold images?
 
-        public ICollection<Comment> Comments { get; set; }
+        //public ICollection<Comment> Comments { get; set; }
         public ICollection<Post> Posts { get; set; }
     }
 }

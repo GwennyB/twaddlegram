@@ -87,9 +87,5 @@ namespace TwaddleGram.Models.Services
             }
         }
 
-        public async Task<ICollection<Comment>> GetAllComments(int id)
-        {
-            return await _context.Comments.Where(m => m.PostID == id).ToListAsync();
-        }
     }
 }

@@ -11,9 +11,10 @@ namespace TwaddleGram.Pages.Posts
 {
     public class IndexModel : PageModel
     {
-
+        /// <summary>
+        /// create a local context via Post interface
+        /// </summary>
         private readonly IPost _post;
-
         public IndexModel(IPost post)
         {
             _post = post;
@@ -24,6 +25,10 @@ namespace TwaddleGram.Pages.Posts
 
         public Post Post { get; set; }
 
+        /// <summary>
+        /// gets the Post with ID from query string and makes it available to page
+        /// </summary>
+        /// <returns> Post with record primary ID = 'ID' </returns>
         public async Task OnGet()
         {
             Post = await _post.GetOnePost(ID);
