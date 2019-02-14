@@ -25,3 +25,13 @@ nav {
     margin: 25px 3%;
     text-align: center;
 }
+
+.commentbox {
+    display: inline-block;
+    background-color: white;
+    border-radius: 15px;
+    width: 40%;
+    padding: 20px;
+    margin: 25px 3%;
+    text-align: center;
+}

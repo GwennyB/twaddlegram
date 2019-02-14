@@ -25,7 +25,13 @@ namespace TwaddleGram.Models.Services
         /// <returns> IEnumerable collection of posts </returns>
         public async Task<IEnumerable<Post>> GetAllPosts()
         {
-            return await Task.Run(() => _context.Posts.AsEnumerable());
+            var query = await Task.Run(() => _context.Posts.AsEnumerable());
+            foreach (var item in query)
+            {
+                item.Comments = await _context.Comments.Where(m => m.PostID == item.ID).ToListAsync();
+                item.User = await _context.Users.FirstOrDefaultAsync(m => m.ID == item.UserID);
+            }
+            return query;
         }
 
         /// <summary>

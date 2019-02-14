@@ -9,7 +9,9 @@
     <partial name="../Shared/_PostPartial.cshtml" model="Model.Post" />
     @foreach (var comment in Model.Post.Comments)
     {
-        <p>@comment.Content (***add user***)</p>
+    <p>
+        <partial name="../Shared/_CommentPartial.cshtml" model="comment" />
+    </p>
     }
 
 </div>
