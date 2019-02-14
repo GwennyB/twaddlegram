@@ -44,7 +44,9 @@ namespace TwaddleGram.Models.Services
         /// <returns> post (if found), or null (if not found) </returns>
         public async Task<Post> GetOnePost(int id)
         {
-            return await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
+            var query = await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
+            query.Comments = await _context.Comments.Where(m => m.PostID == id).ToListAsync();
+            return query;
         }
 
         /// <summary>
@@ -83,6 +85,11 @@ namespace TwaddleGram.Models.Services
                 await Task.Run(() => _context.Remove(query));
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<ICollection<Comment>> GetAllComments(int id)
+        {
+            return await _context.Comments.Where(m => m.PostID == id).ToListAsync();
         }
     }
 }

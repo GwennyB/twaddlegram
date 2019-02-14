@@ -6,7 +6,18 @@
 
 
 @{
+    var posts = await PostSvc.GetAllPosts();
+
 }
 
-
-HOME!
+@foreach (var post in posts)
+{
+<div class="postbox">
+    <p> ----------------------------------------- </p>
+    <a asp-page="Posts/Index" asp-route-id="@post.ID">
+        <p>-- PHOTO HERE --</p>
+        <img src="@post.Photo" alt="Alternate Text" />
+    </a>
+    <p> ----------------------------------------- </p>
+</div>
+}
