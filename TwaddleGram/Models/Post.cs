@@ -9,7 +9,7 @@ namespace TwaddleGram.Models
     {
         public int ID { get; set; }
         public string Caption { get; set; }
-        public int Photo { get; set; } // how to load images?
+        public string Photo { get; set; } // how to load images?
 
         public ICollection<Comment> Comments { get; set; }
 

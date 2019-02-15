@@ -11,6 +11,9 @@
     var posts = await PostSvc.GetAllPosts();
 }
 
+<p><a asp-page="/Manage">Create New Post</a></p>
+
+
 @foreach (var post in posts)
 {
     <a asp-page="Posts/Index" asp-route-id="@post.ID"><partial name="Shared/_PostPartial.cshtml" model="post" /></a>

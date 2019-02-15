@@ -34,29 +34,6 @@ namespace TwaddleGram
             services.AddScoped<IUser, UserManager>();
             services.AddScoped<IComment, CommentManager>();
 
-            //string storageConnectionString = Environment.GetEnvironmentVariable("StorageConnection");
-
-            //CloudStorageAccount storageAccount = null;
-            //CloudBlobContainer cloudBlobContainer = null;
-            //string sourceFile = null;
-            //string destinationFile = null;
-
-            //// Check whether the connection string can be parsed.
-            //if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
-            //{
-            //    // do some stuff
-            //}
-            //else
-            //{
-            //    // Otherwise, let the user know that they need to define the environment variable.
-            //    Console.WriteLine(
-            //        "A connection string has not been defined in the system environment variables. " +
-            //        "Add a environment variable named 'storageconnectionstring' with your storage " +
-            //        "connection string as a value.");
-            //    Console.WriteLine("Press any key to exit the sample application.");
-            //    Console.ReadLine();
-            //}
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

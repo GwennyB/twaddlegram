@@ -30,31 +30,31 @@ namespace TwaddleGram.Data
                 {
                     ID = 1,
                     Username = "gwen",
-                    Avatar = 0
+                    Avatar = ""
                 },
                 new User
                 {
                     ID = 2,
                     Username = "dave",
-                    Avatar = 0
+                    Avatar = ""
                 },
                 new User
                 {
                     ID = 3,
                     Username = "brandon",
-                    Avatar = 0
+                    Avatar = ""
                 },
                 new User
                 {
                     ID = 4,
                     Username = "alyssa",
-                    Avatar = 0
+                    Avatar = ""
                 },
                 new User
                 {
                     ID = 5,
                     Username = "madi",
-                    Avatar = 0
+                    Avatar = ""
                 }
                 );
 
@@ -62,35 +62,35 @@ namespace TwaddleGram.Data
                 new Post
                 {
                     ID = 1,
-                    Photo = 0,
+                    Photo = "",
                     Caption = "first post",
                     UserID = 1
                 },
                 new Post
                 {
                     ID = 2,
-                    Photo = 0,
+                    Photo = "",
                     Caption = "second post",
                     UserID = 1
                 },
                 new Post
                 {
                     ID = 3,
-                    Photo = 0,
+                    Photo = "",
                     Caption = "third post",
                     UserID = 1
                 },
                 new Post
                 {
                     ID = 4,
-                    Photo = 0,
+                    Photo = "",
                     Caption = "fourth post",
                     UserID = 1
                 },
                 new Post
                 {
                     ID = 5,
-                    Photo = 0,
+                    Photo = "",
                     Caption = "fifth post",
                     UserID = 1
                 }

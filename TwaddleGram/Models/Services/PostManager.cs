@@ -74,7 +74,7 @@ namespace TwaddleGram.Models.Services
         /// <returns> task completed </returns>
         public async Task EditPost(Post post)
         {
-            await Task.Run(() => _context.Posts.Update(post));
+            _context.Posts.Update(post);
             await _context.SaveChangesAsync();
 
         }

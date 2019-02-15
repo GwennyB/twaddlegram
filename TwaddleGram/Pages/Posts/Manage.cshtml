@@ -6,16 +6,14 @@
 }
 
 <div>
-
-
-    <p>Post #@Model.Post.ID</p>
-    <p>by @Model.Post.UserID</p>
-    <p>@Model.Post.Photo</p>
-    <p>@Model.Post.Caption</p>
-    @foreach (var comment in Model.Post.Comments)
-    {
-        <p>@comment.Content (***add user***)</p>
-    }
-
+    <form method="post" enctype="multipart/form-data">
+        <label asp-for="Post.Caption"></label>
+        <input asp-for="Post.Caption" />
+        <label asp-for="Image"></label>
+        <input asp-for="Image" type="file" />
+        <img src="Post.Photo" alt="photo by @Model.Post.UserID" />
+        <button type="submit">Post This Twaddle</button>
+    </form>
 
 </div>
+
