@@ -67,10 +67,10 @@ namespace TwaddleGram.Pages.Posts
                 CloudBlob blob = await ImageBlob.GetBlob(Image.FileName, container.Name);
                 // 4. upload image
                 ImageBlob.UploadFile(container,Image.FileName,filePath);
-                Post.Photo = blob.Uri.ToString();
+                query.Photo = blob.Uri.ToString();
             }
 
-            await _post.EditPost(Post);
+            await _post.EditPost(query);
 
             return RedirectToPage("../Index");
         }
