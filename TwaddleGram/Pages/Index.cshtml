@@ -11,8 +11,6 @@
     var posts = await PostSvc.GetAllPosts();
 }
 
-<p><a asp-page="./Posts/Manage">Create New Post</a></p>
-
 
 @foreach (var post in posts)
 {

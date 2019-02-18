@@ -52,7 +52,7 @@ namespace TwaddleGram.Models.Services
         {
             if (id == 0)
             {
-                return new Post();
+                return null;
             }
             var query = await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
             query.Comments = await _context.Comments.Where(m => m.PostID == id).ToListAsync();

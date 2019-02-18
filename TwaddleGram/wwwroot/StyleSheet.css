@@ -13,7 +13,25 @@ nav {
     font-size: 20px;
     margin: 25px auto;
     text-align: center;
+    display: flex;
+    justify-content: space-evenly
 }
+
+    nav li {
+        display: inline-block;
+        margin: auto 50px;
+    }
+
+.postmanage, .postform {
+    margin-left: 3%;
+    width: 40%;
+}
+
+    .postform > label, .postform > select, .postform > textarea, .postform > input, .postform > fieldset {
+        display: inline-block;
+        width: 100%;
+        margin-top: 15px;
+    }
 
 .postbox {
     display: inline-block;

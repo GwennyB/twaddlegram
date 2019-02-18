@@ -14,19 +14,26 @@
     {
         <partial name="../Shared/_PostPartial.cshtml" model="Model.Post" />
     }
-        <form method="post" enctype="multipart/form-data">
-            <label asp-for="Post.User"></label>
-            <select asp-for="Post.User" class="form-control">
-                @foreach (var item in usersList)
-                {
-                    <option value="item">@item</option>
-                }
-            </select>
+        <form class="postform" method="post" enctype="multipart/form-data">
+            @if(Model.ID == null)
+            {
+                <label asp-for="Post.UserID"></label>
+                <select asp-for="Post.UserID" class="form-control">
+                    @foreach (var item in usersList)
+                    {
+                        <option value="@item.ID">@item.Username</option>
+                    }
+                </select>
+            }
             <label asp-for="Post.Caption"></label>
-            <input asp-for="Post.Caption" />
+            <textarea asp-for="Post.Caption"></textarea>
             <label asp-for="Image"></label>
             <input asp-for="Image" type="file" />
-            <button type="submit">Post This Twaddle</button>
+            <fieldset>
+                <button type="submit">Post This Twaddle</button>
+                <button type="submit" asp-page-handler="Delete">Delete This Twaddle</button>
+            </fieldset>
+
         </form>
 
 </div>

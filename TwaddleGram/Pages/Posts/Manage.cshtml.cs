@@ -43,20 +43,19 @@ namespace TwaddleGram.Pages.Posts
         /// <returns> Post with record primary ID = 'ID' </returns>
         public async Task OnGet()
         {
-                Post = await _post.GetOnePost(ID.GetValueOrDefault());
+                Post = await _post.GetOnePost(ID.GetValueOrDefault()) ?? new Post();
         }
 
         public async Task<IActionResult> OnPost()
         {
-            var query = await _post.GetOnePost(ID.GetValueOrDefault()) ?? new Post();
-            if (Post.Photo != null)
+            Post query = await _post.GetOnePost(ID.GetValueOrDefault());
+            if(query == null)
             {
-                query.Caption = Post.Caption;
+                query = new Post();
+                query.UserID = Post.UserID;
             }
-            if(Post.Photo != null)
-            {
-                query.Photo = Post.Photo;
-            }
+
+            query.Caption = (Post.Caption != null) ? Post.Caption : query.Caption;
 
             if(Image != null)
             {
@@ -76,8 +75,21 @@ namespace TwaddleGram.Pages.Posts
                 query.Photo = blob.Uri.ToString();
             }
 
-            await _post.EditPost(query);
+            if(query.ID == 0)
+            {
+                await _post.MakePost(query);
+            }
+            else
+            {
+                await _post.EditPost(query);
+            }
 
+            return RedirectToPage("../Index");
+        }
+
+        public async Task<IActionResult> OnPostDelete()
+        {
+            await _post.DeletePost(ID.Value);
             return RedirectToPage("../Index");
         }
     }

@@ -6,7 +6,8 @@
 
 <div>
 
-    <p><a asp-page="../Posts/Manage" asp-route-id="@Model.Post.ID">Edit Post</a></p>
+    <p><a class="postmanage" asp-page="../Posts/Manage" asp-route-id="@Model.Post.ID">Manage This Twaddle</a></p>
+
     <partial name="../Shared/_PostPartial.cshtml" model="Model.Post" />
     @foreach (var comment in Model.Post.Comments)
     {
