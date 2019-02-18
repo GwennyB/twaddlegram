@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TwaddleGram.Data;
 
 namespace TwaddleGram.Migrations
 {
     [DbContext(typeof(TwaddleDbContext))]
-    partial class TwaddleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190218224005_new-seed-data")]
+    partial class newseeddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +58,7 @@ namespace TwaddleGram.Migrations
                         new
                         {
                             ID = 4,
-                            Content = "Quite possibly the worst thing ever.",
+                            Content = "Quite possibly the most disgusting thing ever.",
                             PostID = 11
                         },
                         new

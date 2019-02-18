@@ -30,31 +30,31 @@ namespace TwaddleGram.Data
                 {
                     ID = 1,
                     Username = "gwen",
-                    Avatar = ""
+                    //Avatar = ""
                 },
                 new User
                 {
                     ID = 2,
                     Username = "dave",
-                    Avatar = ""
+                    //Avatar = ""
                 },
                 new User
                 {
                     ID = 3,
                     Username = "brandon",
-                    Avatar = ""
+                    //Avatar = ""
                 },
                 new User
                 {
                     ID = 4,
                     Username = "alyssa",
-                    Avatar = ""
+                    //Avatar = ""
                 },
                 new User
                 {
                     ID = 5,
                     Username = "madi",
-                    Avatar = ""
+                    //Avatar = ""
                 }
                 );
 
@@ -62,37 +62,37 @@ namespace TwaddleGram.Data
                 new Post
                 {
                     ID = 1,
-                    Photo = "",
-                    Caption = "first post",
+                    Photo = "https://twaddlegram.blob.core.windows.net/userpics/boots.jpg",
+                    Caption = "These boots are rockin'.",
                     UserID = 1
                 },
                 new Post
                 {
                     ID = 2,
-                    Photo = "",
-                    Caption = "second post",
-                    UserID = 1
+                    Photo = "https://twaddlegram.blob.core.windows.net/userpics/dog-duck.jpg",
+                    Caption = "Duckdog!",
+                    UserID = 2
                 },
                 new Post
                 {
                     ID = 3,
-                    Photo = "",
-                    Caption = "third post",
-                    UserID = 1
+                    Photo = "https://twaddlegram.blob.core.windows.net/userpics/bubblegum.jpg",
+                    Caption = "mmm....delish!",
+                    UserID = 3
                 },
                 new Post
                 {
                     ID = 4,
-                    Photo = "",
-                    Caption = "fourth post",
-                    UserID = 1
+                    Photo = "https://twaddlegram.blob.core.windows.net/userpics/cthulhu.jpg",
+                    Caption = "grrrr!",
+                    UserID = 4
                 },
                 new Post
                 {
                     ID = 5,
-                    Photo = "",
-                    Caption = "fifth post",
-                    UserID = 1
+                    Photo = "https://twaddlegram.blob.core.windows.net/userpics/sweep.png",
+                    Caption = "This child has a future in the domestic arts.",
+                    UserID = 5
                 }
                 );
 
@@ -100,36 +100,36 @@ namespace TwaddleGram.Data
                 new Comment
                 {
                     ID = 1,
-                    Content = "first comment",
+                    Content = "They're great for swollen toes!",
                     PostID = 1,
                     //UserID = 1
                 },
                 new Comment
                 {
                     ID = 2,
-                    Content = "second comment",
+                    Content = "Ewww... I don't wanna smell your feet.",
                     PostID = 1,
                     //UserID = 1
                 },
                 new Comment
                 {
                     ID = 3,
-                    Content = "third comment",
+                    Content = "You could wear them for a pedicure!",
                     PostID = 1,
                     //UserID = 1
                 },
                 new Comment
                 {
                     ID = 4,
-                    Content = "fourth comment",
-                    PostID = 1,
+                    Content = "Quite possibly the worst thing ever.",
+                    PostID = 3,
                     //UserID = 1
                 },
                 new Comment
                 {
                     ID = 5,
-                    Content = "fifth comment",
-                    PostID = 1,
+                    Content = "Gotta teach them early!",
+                    PostID = 5,
                     //UserID = 1
                 }
                 );
