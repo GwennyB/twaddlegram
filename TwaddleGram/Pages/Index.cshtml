@@ -1,0 +1,19 @@
+﻿@page
+
+@using TwaddleGram.Models.Interfaces
+
+@inject IPost PostSvc
+
+
+@{
+    Layout = "_Layout";
+
+    var posts = await PostSvc.GetAllPosts();
+}
+
+
+@foreach (var post in posts)
+{
+    <a asp-page="Posts/Index" asp-route-id="@post.ID"><partial name="Shared/_PostPartial.cshtml" model="post" /></a>
+
+}

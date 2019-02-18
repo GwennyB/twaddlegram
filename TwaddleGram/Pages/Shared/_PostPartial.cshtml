@@ -1,0 +1,14 @@
+﻿@model TwaddleGram.Models.Post
+
+<div class="postbox">
+    <p class="posthead">
+        @Model.User.Username says...</p>
+    <div class="postcontent">
+        <div class="photo">
+            <img src="@Model.Photo" alt="user posted image" />
+        </div>
+        <div class="caption">
+            <p>@Model.Caption</p>
+        </div>
+    </div>
+</div>

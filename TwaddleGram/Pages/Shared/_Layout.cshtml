@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>twaddlegram</title>
+    <link href="~/reset.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>twaddlegram</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a asp-page="/Index">Go Home</a></li>
+            <li><p><a asp-page="/Posts/Manage">Add Twaddle</a></p></li>
+        </ul>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>
