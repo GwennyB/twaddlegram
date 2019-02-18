@@ -29,7 +29,7 @@ namespace TwaddleGram.Pages.Posts
         }
 
         [FromRoute]
-        public int ID { get; set; }
+        public int? ID { get; set; }
 
         [BindProperty]
         public Post Post { get; set; }
@@ -43,14 +43,20 @@ namespace TwaddleGram.Pages.Posts
         /// <returns> Post with record primary ID = 'ID' </returns>
         public async Task OnGet()
         {
-            Post = await _post.GetOnePost(ID);
+                Post = await _post.GetOnePost(ID.GetValueOrDefault());
         }
 
         public async Task<IActionResult> OnPost()
         {
-            var query = await _post.GetOnePost(ID);
-            query.Caption = Post.Caption;
-            query.Photo = Post.Photo;
+            var query = await _post.GetOnePost(ID.GetValueOrDefault()) ?? new Post();
+            if (Post.Photo != null)
+            {
+                query.Caption = Post.Caption;
+            }
+            if(Post.Photo != null)
+            {
+                query.Photo = Post.Photo;
+            }
 
             if(Image != null)
             {

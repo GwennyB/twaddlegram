@@ -1,19 +1,33 @@
 ﻿@page "{id?}"
 @model TwaddleGram.Pages.Posts.ManageModel
+
+@using TwaddleGram.Models.Interfaces
+@inject IUser UserSvc
+
 @{
     Layout = "_Layout";
-
+    var usersList = await UserSvc.GetAllUsers();
 }
 
 <div>
-    <form method="post" enctype="multipart/form-data">
-        <label asp-for="Post.Caption"></label>
-        <input asp-for="Post.Caption" />
-        <label asp-for="Image"></label>
-        <input asp-for="Image" type="file" />
-        <img src="Post.Photo" alt="photo by @Model.Post.UserID" />
-        <button type="submit">Post This Twaddle</button>
-    </form>
+    @if (Model.Post.Caption != null || Model.Post.Photo != null)
+    {
+        <partial name="../Shared/_PostPartial.cshtml" model="Model.Post" />
+    }
+        <form method="post" enctype="multipart/form-data">
+            <label asp-for="Post.User"></label>
+            <select asp-for="Post.User" class="form-control">
+                @foreach (var item in usersList)
+                {
+                    <option value="item">@item</option>
+                }
+            </select>
+            <label asp-for="Post.Caption"></label>
+            <input asp-for="Post.Caption" />
+            <label asp-for="Image"></label>
+            <input asp-for="Image" type="file" />
+            <button type="submit">Post This Twaddle</button>
+        </form>
 
 </div>
 

@@ -50,6 +50,10 @@ namespace TwaddleGram.Models.Services
         /// <returns> post (if found), or null (if not found) </returns>
         public async Task<Post> GetOnePost(int id)
         {
+            if (id == 0)
+            {
+                return new Post();
+            }
             var query = await _context.Posts.FirstOrDefaultAsync(m => m.ID == id);
             query.Comments = await _context.Comments.Where(m => m.PostID == id).ToListAsync();
             query.User = await _context.Users.FirstOrDefaultAsync(m => m.ID == query.UserID);
