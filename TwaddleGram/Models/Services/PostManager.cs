@@ -61,7 +61,7 @@ namespace TwaddleGram.Models.Services
         /// <returns> task complete </returns>
         public async Task MakePost(Post post)
         {
-            await _context.Posts.AddAsync (post);
+            await _context.Posts.AddAsync(post);
             await _context.SaveChangesAsync();
         }
 

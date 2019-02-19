@@ -93,8 +93,6 @@ namespace UnitTests
         }
 
 
-
-
         /// <summary>
         /// verifies that GetAllPosts returns a list of the correct length
         /// </summary>
@@ -130,8 +128,6 @@ namespace UnitTests
             }
 
         }
-
-
 
         /// <summary>
         /// verifies that GetAllPosts returns a list with expected User objects
@@ -207,13 +203,12 @@ namespace UnitTests
                 //act
                 PostManager service = new PostManager(_context);
 
-                var query = await service.GetOnePost(5);
+                var query = await _context.Posts.FirstOrDefaultAsync(m => m.Caption == "five");
 
                 //assert
                 Assert.Equal("five", query.Caption);
             }
         }
-
 
         /// <summary>
         /// verifies that GetOnePost returns 'null' if not found
@@ -254,30 +249,6 @@ namespace UnitTests
         }
 
         /// <summary>
-        /// verifies that MakePost correctly adds new post
-        /// </summary>
-        [Fact]
-        public async void MakePost_AddsPost()
-        {
-            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("MakePost").Options;
-
-            using (TwaddleDbContext _context = new TwaddleDbContext(options))
-            {
-                //arrange
-                Post one = new Post();
-                one.Caption = "test";
-
-                //act
-                PostManager service = new PostManager(_context);
-                await service.MakePost(one);
-
-                //assert
-                Assert.Equal("test",(await service.GetOnePost(1)).Caption);
-            }
-        }
-
-
-        /// <summary>
         /// verifies that EditPost correctly edits existing post
         /// </summary>
         [Fact]
@@ -308,7 +279,7 @@ namespace UnitTests
         [Fact]
         public async void DeletePost_DeletesExistingPost()
         {
-            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("EditPost").Options;
+            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("DeletePost").Options;
 
             using (TwaddleDbContext _context = new TwaddleDbContext(options))
             {
@@ -323,6 +294,30 @@ namespace UnitTests
 
                 //assert
                 Assert.Null((await service.GetOnePost(1)));
+            }
+        }
+
+        /// <summary>
+        /// verifies that MakePost correctly adds new post
+        /// </summary>
+        [Fact]
+        public async void MakePost_AddsPost()
+        {
+            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("MakePost").Options;
+
+            using (TwaddleDbContext _context = new TwaddleDbContext(options))
+            {
+                //arrange
+                Post one = new Post();
+                one.Caption = "test";
+
+                //act
+                PostManager service = new PostManager(_context);
+                await service.MakePost(one);
+
+                var query = await _context.Posts.FirstOrDefaultAsync(m => m.Caption == "test");
+                //assert
+                Assert.Equal("test", query.Caption);
             }
         }
     }
