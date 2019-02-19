@@ -35,15 +35,6 @@ namespace TwaddleGram.Models.Services
         }
 
         /// <summary>
-        /// returns all records in Posts table associated with this User
-        /// </summary>
-        /// <returns> IEnumerable collection of posts </returns>
-        public async Task<IEnumerable<Post>> GetUserPosts(int id)
-        {
-            return await Task.Run(() => _context.Posts.Where(m => m.UserID == id));
-        }
-
-        /// <summary>
         /// returns a single post by ID
         /// </summary>
         /// <param name="id"> ID of post to get </param>
