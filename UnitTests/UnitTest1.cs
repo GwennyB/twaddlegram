@@ -254,7 +254,7 @@ namespace UnitTests
         }
 
         /// <summary>
-        /// verifies that GetOnePost returns 'null' if not found
+        /// verifies that MakePost correctly adds new post
         /// </summary>
         [Fact]
         public async void MakePost_AddsPost()
@@ -276,6 +276,55 @@ namespace UnitTests
             }
         }
 
+
+        /// <summary>
+        /// verifies that EditPost correctly edits existing post
+        /// </summary>
+        [Fact]
+        public async void EditPost_UpdatesExistingPost()
+        {
+            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("EditPost").Options;
+
+            using (TwaddleDbContext _context = new TwaddleDbContext(options))
+            {
+                //arrange
+                Post one = new Post();
+                one.Caption = "test";
+                PostManager service = new PostManager(_context);
+                await service.MakePost(one);
+
+                //act
+                one.Caption = "updated";
+                await service.EditPost(one);
+
+                //assert
+                Assert.Equal("updated", (await service.GetOnePost(1)).Caption);
+            }
+        }
+
+        /// <summary>
+        /// verifies that DeletePost correctly deletes existing post
+        /// </summary>
+        [Fact]
+        public async void DeletePost_DeletesExistingPost()
+        {
+            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("EditPost").Options;
+
+            using (TwaddleDbContext _context = new TwaddleDbContext(options))
+            {
+                //arrange
+                Post one = new Post();
+                one.Caption = "test";
+                PostManager service = new PostManager(_context);
+                await service.MakePost(one);
+
+                //act
+                await service.DeletePost(one.ID);
+
+                //assert
+                Assert.Null((await service.GetOnePost(1)));
+            }
+        }
     }
 }
 
