@@ -253,6 +253,28 @@ namespace UnitTests
             }
         }
 
+        /// <summary>
+        /// verifies that GetOnePost returns 'null' if not found
+        /// </summary>
+        [Fact]
+        public async void MakePost_AddsPost()
+        {
+            DbContextOptions<TwaddleDbContext> options = new DbContextOptionsBuilder<TwaddleDbContext>().UseInMemoryDatabase("MakePost").Options;
+
+            using (TwaddleDbContext _context = new TwaddleDbContext(options))
+            {
+                //arrange
+                Post one = new Post();
+                one.Caption = "test";
+
+                //act
+                PostManager service = new PostManager(_context);
+                await service.MakePost(one);
+
+                //assert
+                Assert.Equal("test",(await service.GetOnePost(1)).Caption);
+            }
+        }
 
     }
 }
