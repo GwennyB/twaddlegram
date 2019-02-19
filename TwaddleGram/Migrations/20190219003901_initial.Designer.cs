@@ -9,8 +9,8 @@ using TwaddleGram.Data;
 namespace TwaddleGram.Migrations
 {
     [DbContext(typeof(TwaddleDbContext))]
-    [Migration("20190214032059_seed-data")]
-    partial class seeddata
+    [Migration("20190219003901_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,32 +40,32 @@ namespace TwaddleGram.Migrations
                         new
                         {
                             ID = 1,
-                            Content = "first comment",
+                            Content = "They're great for swollen toes!",
                             PostID = 1
                         },
                         new
                         {
                             ID = 2,
-                            Content = "second comment",
+                            Content = "Ewww... I don't wanna smell your feet.",
                             PostID = 1
                         },
                         new
                         {
                             ID = 3,
-                            Content = "third comment",
+                            Content = "You could wear them for a pedicure!",
                             PostID = 1
                         },
                         new
                         {
                             ID = 4,
-                            Content = "fourth comment",
-                            PostID = 1
+                            Content = "Quite possibly the worst thing ever.",
+                            PostID = 3
                         },
                         new
                         {
                             ID = 5,
-                            Content = "fifth comment",
-                            PostID = 1
+                            Content = "Gotta teach them early!",
+                            PostID = 5
                         });
                 });
 
@@ -77,7 +77,7 @@ namespace TwaddleGram.Migrations
 
                     b.Property<string>("Caption");
 
-                    b.Property<int>("Photo");
+                    b.Property<string>("Photo");
 
                     b.Property<int>("UserID");
 
@@ -91,37 +91,37 @@ namespace TwaddleGram.Migrations
                         new
                         {
                             ID = 1,
-                            Caption = "first post",
-                            Photo = 0,
+                            Caption = "These boots are rockin'.",
+                            Photo = "https://twaddlegram.blob.core.windows.net/userpics/boots.jpg",
                             UserID = 1
                         },
                         new
                         {
                             ID = 2,
-                            Caption = "second post",
-                            Photo = 0,
-                            UserID = 1
+                            Caption = "Duckdog!",
+                            Photo = "https://twaddlegram.blob.core.windows.net/userpics/dog-duck.jpg",
+                            UserID = 2
                         },
                         new
                         {
                             ID = 3,
-                            Caption = "third post",
-                            Photo = 0,
-                            UserID = 1
+                            Caption = "mmm....delish!",
+                            Photo = "https://twaddlegram.blob.core.windows.net/userpics/bubblegum.jpg",
+                            UserID = 3
                         },
                         new
                         {
                             ID = 4,
-                            Caption = "fourth post",
-                            Photo = 0,
-                            UserID = 1
+                            Caption = "grrrr!",
+                            Photo = "https://twaddlegram.blob.core.windows.net/userpics/cthulhu.jpg",
+                            UserID = 4
                         },
                         new
                         {
                             ID = 5,
-                            Caption = "fifth post",
-                            Photo = 0,
-                            UserID = 1
+                            Caption = "This child has a future in the domestic arts.",
+                            Photo = "https://twaddlegram.blob.core.windows.net/userpics/sweep.png",
+                            UserID = 5
                         });
                 });
 
@@ -130,8 +130,6 @@ namespace TwaddleGram.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Avatar");
 
                     b.Property<string>("Username");
 
@@ -143,31 +141,26 @@ namespace TwaddleGram.Migrations
                         new
                         {
                             ID = 1,
-                            Avatar = 0,
                             Username = "gwen"
                         },
                         new
                         {
                             ID = 2,
-                            Avatar = 0,
                             Username = "dave"
                         },
                         new
                         {
                             ID = 3,
-                            Avatar = 0,
                             Username = "brandon"
                         },
                         new
                         {
                             ID = 4,
-                            Avatar = 0,
                             Username = "alyssa"
                         },
                         new
                         {
                             ID = 5,
-                            Avatar = 0,
                             Username = "madi"
                         });
                 });

@@ -57,13 +57,13 @@ namespace TwaddleGram.Migrations
                         {
                             ID = 4,
                             Content = "Quite possibly the worst thing ever.",
-                            PostID = 11
+                            PostID = 3
                         },
                         new
                         {
                             ID = 5,
                             Content = "Gotta teach them early!",
-                            PostID = 13
+                            PostID = 5
                         });
                 });
 
@@ -128,8 +128,6 @@ namespace TwaddleGram.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Avatar");
 
                     b.Property<string>("Username");
 

@@ -10,17 +10,17 @@ namespace TwaddleGram.Models.Interfaces
         // GetAll
         Task<IEnumerable<User>> GetAllUsers();
 
-        // GetOne
-        Task<User> GetOneUser(int id);
+        //// GetOne
+        //Task<User> GetOneUser(int id);
 
-        // Create
-        Task MakeUser(User user);
+        //// Create
+        //Task MakeUser(User user);
 
-        // Edit
-        Task EditUser(User user);
+        //// Edit
+        //Task EditUser(User user);
 
-        // Delete
-        Task DeleteUser(int id);
+        //// Delete
+        //Task DeleteUser(int id);
 
     }
 }
