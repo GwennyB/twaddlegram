@@ -38,5 +38,6 @@ The 'details' and 'manage' pages are Razor Pages (ie - Razor Views with backing 
 Simple data is stored in a SQL database. Uploaded images are stored in Azure Blob storage. The site is deployed in Azure, which is where all site storage resides.
 
 ## Testing
-Any additional important information…
+xUnit testing addresses all methods in Services.
+![unit tests](assets/unit-tests.PNG)
 
