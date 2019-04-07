@@ -1,3 +1,5 @@
+## *** NO LONGER DEPLOYED ON AZURE ***  
+
 # TwaddleGram
 https://twaddlegram.azurewebsites.net/
 This simple (3 page) Razor Pages application emulates the basic features of a typical social media pages. A user can view, add, edit, and delete posts. A post can include a photo and a caption. Common navigation allows the user to return home or add a post from anywhere on the site.
